@@ -1,0 +1,33 @@
+
+
+<div class="d-flex justify-content-between flex-wrap">
+  <p-card header="{{category.name}}" *ngFor="let category of categories" class="w-22">
+    <ng-template pTemplate="header">
+      <div class="text-white bg-secondary px-3 py-1 rounded position-absolute">png</div>
+      <img alt="Card" [src]="'assets/img/'+category.imageUrl" />
+
+    </ng-template>
+   
+    <p>
+      {{
+        category.description
+      }}
+    </p>
+    <ng-template pTemplate="footer">
+
+
+      <div class="d-flex align-items-center justify-content-between ">
+        <span class="icon-group">
+          <p-button (click)="goToCategoryDetail(category.id)" icon="pi pi-download"></p-button>
+          <p-button (click)="goToCategoryDetail(category.id)" icon="pi pi-star"></p-button>
+          <p-button (click)="goToAssetView" icon="pi pi-lock"></p-button>
+        </span>
+        
+        <p-button (click)="goToAssetView(asset.id)" icon="pi pi-eye" [rounded]="true" severity="success"></p-button>
+      </div>
+
+
+    </ng-template>
+  </p-card>
+</div>
+

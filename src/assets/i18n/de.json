@@ -1,0 +1,45 @@
+{
+	"account_menu": {
+		"logout": "Ausloggen"
+	},
+	"general": {
+		"all_fields_mandatory": "Alle Felder sind obligatorisch",
+		"app_name": "EV Pricing",
+		"cancel": "Stornieren",
+		"downloading": "Downloading",
+		"loading": "Loading",
+		"messages": {
+			"info_saved": "Ihre Daten wurden erfolgreich gespeichert"
+		},
+		"no": "Nein",
+		"ok": "OK",
+		"reject": "Ablehnen",
+		"search": "Suchen",
+		"select_all": "Alle(s) auswählen",
+		"table_results": {
+			"na": " -"
+		},
+		"validate": "Einreichen",
+		"yes": "Ja"
+	},
+  "navigation": {
+    "cpo_liste": "CPO-Liste",
+    "rules": "Regeln",
+    "vat": "MwSt",
+    "assignment": "Abtretung",
+    "history": "Geschichte"
+  },
+  "filter_zone": {
+    "cpo_name": "Name CPO",
+    "rule": "Regel",
+    "country": "Land",
+    "buttons": {
+      "filter": "Filtern",
+      "reset": "Alles zurücksetzen"
+    }
+  },
+	"login": {
+		"connect": "Einloggen",
+		"connect_via": "Verbinden über {{provider}}"
+	}
+}

@@ -1,0 +1,123 @@
+{
+	"account_menu": {
+		"logout": "Logout"
+	},
+	"general": {
+		"all_fields_mandatory": "All the fields are mandatory",
+		"app_name": "MAYA",
+		"cancel": "Cancel",
+    "add": "Add",
+    "confirm": "Yes",
+		"downloading": "Downloading...",
+		"loading": "Loading...",
+    "confirm-message": "Are you sure you want to delete",
+		"messages": {
+			"info_saved": "Your information has been saved successfully"
+		},
+		"no": "No",
+		"ok": "OK",
+		"reject": "Reject",
+		"search": "Search",
+		"select_all": "Select all",
+		"table_results": {
+			"na": " - "
+		},
+		"validate": "Submit",
+		"yes": "Yes",
+    "download_table": "Download table"
+	},
+  "navigation": {
+    "dashboard": "Dashboard",
+    "mission": "Missions",
+    "billing": "Invoices",
+    "payment": "Payment",
+    "activity": "Activities",
+    "expense": "Expenses",
+    "timesheet": "Time sheet",
+    "document": "Documents"
+},
+  "filter_zone": {
+    "cpo_name": "CPO name",
+    "rule": "Rule",
+    "country": "Country",
+    "buttons": {
+      "filter": "Filter",
+      "reset": "Reset all ",
+      "update": "Update "
+    },
+    "vat_type": "Type",
+    "assignment_cpo": "CPO"
+  },
+  "buttons": {
+    "cpo_list": {
+
+    },
+    "rules": {
+      "add_rule": "Add a new rule"
+    }
+  },
+  "users_accounts":{
+    "add_user": "Add a user",
+    "update_user": "Modify a user",
+    "my_account": "My account",
+    "search_placeholder": "Search user",
+    "account_details": {
+      "igg": "IGG",
+      "name": "Name",
+      "surname": "First name",
+      "email": "Email",
+      "can_create": "Can create other user accounts",
+      "can_validate": "Can validate prices",
+      "can_access_functional_screens": "Can access the functional screens",
+      "subsidiary": "Subsidiary",
+      "last_connexion":"Last connection"
+    },
+    "users_list":"List of users"
+  },
+  "cpo_table": {
+    "country": "Country",
+    "id": "ID",
+    "cpo_name": "CPO name",
+    "cpo_type": "CPO type",
+    "rate": "Margin rates",
+    "cost": "Roaming cost",
+    "price": "Price per Kwh",
+    "currency": "Currency"
+  },
+  "rules_dialog": {
+    "add_rule": "Add rule",
+    "edit_rule": "Rule modification",
+    "rule_name": "Rule name",
+    "rate_and_roaming": "Margin + Roaming",
+    "cost_per_kwh": "Price per Kwh",
+    "margin_rate": "Margin rate",
+    "roaming_cost": "Roaming cost"
+
+  },
+  "rule_table": {
+    "rule": "Rule",
+    "id_country": "ID Country",
+    "rate": "Margin rates",
+    "cost": "Roaming cost",
+    "price": "Price per Kwh"
+  },
+  "vat_table": {
+    "country": "Country",
+    "vat_type": "VAT type",
+    "vat_amount": "VAT amount"
+  },
+  "history_table": {
+    "igg": "IGG User",
+    "date": "Date",
+    "tab": "Tab",
+    "state": "State"
+  },
+  "history_dialog": {
+    "igg": "IGG User",
+    "date": "Date"
+  },
+	"login": {
+		"connect": "Log in",
+		"connect_via": "Connect via {{provider}}"
+	}
+}

@@ -1,0 +1,46 @@
+{
+	"account_menu": {
+		"logout": "Uitloggen"
+	},
+	"general": {
+		"all_fields_mandatory": "alle velden zijn verplicht",
+		"app_name": "EV Pricing",
+		"cancel": "annuleren",
+		"downloading": "Bezig met downloaden ...",
+		"loading": "Bezig met laden...",
+		"messages": {
+			"info_saved": "Jouw gegevens zijn succesvol opgeslagen"
+		},
+		"no": "Nee",
+		"ok": "OK",
+		"reject": "Afwijzen",
+		"search": "Zoeken",
+		"select_all": "Selecteer alles",
+		"table_results": {
+			"na": " -"
+		},
+		"validate": "Indienen",
+		"yes": "Ja"
+	},
+  "navigation": {
+    "cpo_liste": "CPO-lijst",
+    "rules": "Reglement",
+    "vat": "VAT",
+    "assignment": "Opdracht",
+    "history": "Geschiedenis"
+  },
+  "filter_zone": {
+    "cpo_name": "Naam CPO",
+    "rule": "Regel",
+    "country": "Land",
+    "buttons": {
+      "filter": "Filter",
+      "reset": "Alles resetten"
+    }
+  },
+	"login": {
+		"connect": "Inloggen",
+		"connect_via": "Maak verbinding via {{provider}}"
+	}
+
+}

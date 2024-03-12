@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\modules",
+    "\\src\\app\\modules\\core",
+    "\\src\\app\\modules\\core\\components",
+    "\\src\\app\\modules\\core\\components\\asset-view",
+    "\\src\\app\\modules\\core\\components\\navigation",
+    "\\src\\app\\sign-up-user",
+    "\\src\\assets\\AVL_Logo"
+  ],
+  "SelectedNode": "\\src\\app\\modules\\core\\components\\navigation\\navigation.component.scss",
+  "PreviewInSolutionExplorer": false
+}

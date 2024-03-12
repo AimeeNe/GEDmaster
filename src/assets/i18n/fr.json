@@ -1,0 +1,126 @@
+{
+	"account_menu": {
+		"logout": "Déconnexion"
+	},
+
+	"general": {
+		"all_fields_mandatory": "Tous les champs sont obligatoires",
+		"app_name": "MAYA",
+		"cancel": "Annuler",
+		"add": "Ajouter",
+		"confirm": "Oui",
+		"downloading": "Téléchargement en cours...",
+		"loading": "Chargement des données...",
+    "confirm-message": "Êtes vous sûr de vouloir supprimer",
+		"messages": {
+			"info_saved": "Vos informations ont bien été enregistrées"
+		},
+		"no": "Non",
+		"ok": "OK",
+		"reject": "Rejeter",
+		"search": "Rechercher",
+		"select_all": "Tout sélectionner",
+		"table_results": {
+			"na": " - "
+		},
+		"validate": "Valider",
+		"yes": "Oui",
+    "download_table": "Télécharger le tableau"
+	},
+  "navigation": {
+    "dashboard": "Tableau de bord",
+    "mission": "Missions",
+    "billing": "Factures",
+    "payment": "Versement",
+    "activity": "Activités",
+    "expense": "Dépenses",
+    "timesheet": "Feuille de temps",
+    "document": "Documents"
+  },
+  "filter_zone": {
+    "cpo_name": "Nom CPO",
+    "rule": "Règle",
+    "country": "Pays",
+    "buttons": {
+      "filter": "Filtrer",
+      "reset": "Tout réinitialiser ",
+      "update": "Modifier "
+    },
+    "vat_type": "Type",
+    "assignment_cpo": "CPO"
+  },
+  "buttons": {
+    "cpo_list": {
+
+    },
+    "rules": {
+      "add_rule": "Ajouter une nouvelle règle"
+    }
+
+  },
+  "users_accounts":{
+    "add_user": "Ajouter un utilisateur",
+    "update_user": "Modifier un utilisateur",
+    "my_account": "Mon compte",
+    "search_placeholder": "Rechercher utilisateur",
+    "account_details": {
+      "igg": "IGG",
+      "name": "Nom",
+      "surname": "Prénom",
+      "mail": "Email",
+      "can_create": "Peut créer d’autres comptes utilisateurs",
+      "can_validate": "Peut valider les prix",
+      "can_access_functional_screens": "Peut accéder aux écrans fonctionnels",
+      "subsidiary": "Filiale",
+      "last_connexion":"Dernière connexion"
+    },
+    "users_list":"Liste des utilisateurs"
+  },
+  "cpo_table": {
+    "country": "Pays",
+    "id": "ID",
+    "cpo_name": "Nom CPO",
+    "cpo_type": "Type CPO",
+    "rate": "Taux marges",
+    "cost": "Coût roaming",
+    "price": "Prix par Kwh",
+    "currency": "Devise"
+  },
+  "rules_dialog": {
+    "add_rule": "Ajout de règle",
+    "edit_rule": "Modification de règle",
+    "rule_name": "Nom règle",
+    "rate_and_roaming": "Marge + Roaming",
+    "cost_per_kwh": "Prix au Kwh",
+    "margin_rate": "Taux  marge",
+    "roaming_cost": "Coût roaming"
+
+  },
+  "rule_table": {
+    "rule": "Règle",
+    "id_country": "ID Pays",
+    "rate": "Taux marges",
+    "cost": "Coût roaming",
+    "price": "Prix par Kwh"
+  },
+  "vat_table": {
+    "country": "Pays",
+    "vat_type": "Type TVA",
+    "vat_amount": "Montant TVA"
+  },
+  "history_table": {
+    "igg": "IGG Utilisateur",
+    "date": "Date",
+    "tab": "Onglet",
+    "state": "Etat"
+  },
+  "history_dialog": {
+    "igg": "IGG Utilisateur",
+    "date": "Date"
+  },
+
+	"login": {
+		"connect": "Me connecter",
+		"connect_via": "Connexion via {{provider}}"
+	}
+}

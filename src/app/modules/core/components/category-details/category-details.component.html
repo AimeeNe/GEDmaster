@@ -1,0 +1,121 @@
+<button pButton pRipple label="Back" icon="pi pi-arrow-left" class="p-button-secondary mr-2 mt-3" (click)="goBack()"></button>
+<div class="card mt-5">
+  <p-toast></p-toast>
+  <p-toolbar styleClass="mb-4 gap-2">
+    <ng-template pTemplate="left">
+      <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+      <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedFiles()" [disabled]="!selectedFiles || !selectedFiles.length"></button>
+    </ng-template>
+
+    <ng-template pTemplate="right">
+      <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload>
+      <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+    </ng-template>
+  </p-toolbar>
+
+  <p-table
+    #dt
+    [value]="files"
+    [rows]="10"
+    [paginator]="true"
+    [globalFilterFields]="['name', 'fileType', 'fileExtention', 'filename']"
+    [tableStyle]="{ 'min-width': '75rem' }"
+    [(selection)]="selectedFiles"
+    [rowHover]="true"
+    dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [showCurrentPageReport]="true"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <h5 class="m-0">Manage files</h5>
+        <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 4rem">
+          <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+        </th>
+        <th pSortableColumn="name" style="min-width:15rem">Name <p-sortIcon field="name"></p-sortIcon></th>
+        <th>Extension</th>
+        <th pSortableColumn="price">Type <p-sortIcon field="price"></p-sortIcon></th>
+        <th pSortableColumn="fileurl" style="min-width:10rem">Category <p-sortIcon field="category"></p-sortIcon></th>
+        <th pSortableColumn="rating">Reviews <p-sortIcon field="rating"></p-sortIcon></th>
+        <th pSortableColumn="inventoryStatus" style="min-width:10rem">Status <p-sortIcon field="inventoryStatus"></p-sortIcon></th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-file>
+      <tr>
+        <td>
+          <p-tableCheckbox [value]="file"></p-tableCheckbox>
+        </td>
+        <td>{{ file.name }}</td>
+        <td><img [src]="'assets/img/'+ file.fileUrl" [alt]="file.name" width="50" class="shadow-4" /></td>
+        <td>{{ file.price | currency: 'USD' }}</td>
+        <td>{{ file.category }}</td>
+        <td><p-rating [ngModel]="file.rating" [readonly]="true" [cancel]="false"></p-rating></td>
+        <td>
+          <p-tag [value]="file.inventoryStatus" [severity]="getSeverity(file.inventoryStatus)"></p-tag>
+        </td>
+        <td>
+          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editFile(file)"></button>
+          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteFile(file)"></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">In total there are {{ files ? files.length : 0 }} files.</div>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog [(visible)]="fileDialog" [style]="{ width: '450px' }" header="File Details" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <img [src]="'https://primefaces.org/cdn/primeng/images/demo/file/' + file.fileUrl" [alt]="file.fileUrl" class="block m-auto pb-3" *ngIf="file.fileUrl" />
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" pInputText id="name" [(ngModel)]="file.name" required autofocus />
+      <small class="p-error" *ngIf="submitted && !file.name">Name is required.</small>
+    </div>
+    <div class="field">
+      <label for="description">Description</label>
+      <textarea id="description" pInputTextarea [(ngModel)]="file.description" required rows="3" cols="20"></textarea>
+    </div>
+
+
+    <div class="field">
+      <label class="mb-3">Category</label>
+      <div class="formgrid grid">
+        <div class="field-radiobutton col-6">
+          <p-radioButton id="category1" name="category" value="Accessories" [(ngModel)]="file.categoryName"></p-radioButton>
+          <label for="category1">Accessories</label>
+        </div>
+        <div class="field-radiobutton col-6">
+          <p-radioButton id="category2" name="category" value="Clothing" [(ngModel)]="file.categoryName"></p-radioButton>
+          <label for="category2">Clothing</label>
+        </div>
+        <div class="field-radiobutton col-6">
+          <p-radioButton id="category3" name="category" value="Electronics" [(ngModel)]="file.categoryName"></p-radioButton>
+          <label for="category3">Electronics</label>
+        </div>
+        <div class="field-radiobutton col-6">
+          <p-radioButton id="category4" name="category" value="Fitness" [(ngModel)]="file.categoryName"></p-radioButton>
+          <label for="category4">Fitness</label>
+        </div>
+      </div>
+    </div>
+
+
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="savefile()"></button>
+  </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>

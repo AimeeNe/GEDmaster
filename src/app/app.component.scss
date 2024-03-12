@@ -1,0 +1,102 @@
+
+
+:host {
+  display: block;
+  background-color: white;
+
+  .home-link {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    color: var(--yirmea-clr-typo-red);
+
+    &:visited {
+      text-decoration: none;
+    }
+  }
+
+  header {
+    background: #FFF;
+    min-height: 108px;
+    display: flex;
+    padding-top: 1rem;
+    //margin: 0 auto;
+    //max-width: 1440px;
+
+    .header-left {
+      margin-right: 2rem ;
+      flex: 0 0 auto;
+
+      .logo {
+        background-color: #ffffff;
+      }
+    }
+
+    .header-right {
+      flex-grow: 1;
+      align-self: stretch;
+
+      .header-right-top {
+        border-bottom: 2px solid var(--yirmea-clr-ui-gray-400);
+        display: flex;
+        justify-content: space-between;
+        height: 45px;
+        margin-bottom: 5px;
+
+        .app-name {
+          font-family: var(--yirmea-font-nunito) !important;
+          font-weight: var(--yirmea-font-weight-nunito) !important;
+          font-size: 1.125rem;
+          line-height: 1.25rem;
+          margin: 0;
+
+        }
+
+        .lang-select {
+          width: 2.7rem;
+          color: var(--yirmea-clr-typo-gray);
+          margin-left: .5rem;
+          margin-right: 1rem;
+
+          ::ng-deep {
+            .mat-select-value {
+              color: var(--yirmea-clr-typo-gray);
+
+              span {
+                font-size: 1.125rem !important;
+              }
+            }
+
+            .mat-select-arrow {
+              color: var(--yirmea-clr-typo-red);
+            }
+          }
+        }
+
+        .separator {
+          width: 2px;
+          height: 1rem;
+          background: var(--yirmea-clr-ui-gray-400);
+        }
+
+        .other-btns {
+          margin: 0 .5rem;
+
+          .small-btn{
+            border: 1px solid #ED0000;
+            border-radius: 80px;
+            width: auto;
+            height: 46px;
+            display: flex;
+            flex-direction: row;
+            padding: 11px 20px;
+            align-items: center;
+            justify-content: space-between;
+          }
+        }
+      }
+
+
+    }
+  }
+}
