@@ -4,15 +4,7 @@
 
 export const environment = {
   production: false,
-  aglsite: 'https://www.aglconcept.com/',
-  isapi: false,
-  rootPath: './',
-  docTemplatesUrl: 'assets/templates/',
-  dsAdmin: 'http://localhost:8083/datasnap/rest/DSAdmin/',
-  ds: 'http://localhost:8083/datasnap/rest/TProxy/',
-  path: '../',
-  pageSize: 15,
-  res: {}
+  baseUrl: 'http://localhost:8080/',
 };
 
 /*

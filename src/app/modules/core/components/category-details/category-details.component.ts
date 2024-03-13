@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ConfirmationService, MessageService} from "primeng/api";
 import {Location} from "@angular/common";
-import {File} from "../../../../models/File.model";
+import {FileAsset} from "../../../../models/File.model";
 
 @Component({
   selector: 'app-category-details',
@@ -14,13 +14,13 @@ export class CategoryDetailsComponent {
 
 
   selectedfiles!: any[] | null;
-  selectedFiles!: File[] | null;
+  selectedFiles!: FileAsset[] | null;
 
   submitted: boolean = false;
 
   statuses!: any[];
-  files:File[] = [];
-  file!: File;
+  files:FileAsset[] = [];
+  file!: FileAsset;
 
   constructor( private messageService: MessageService, private confirmationService: ConfirmationService,private _location: Location) {}
 
@@ -37,7 +37,7 @@ export class CategoryDetailsComponent {
 
   openNew() {
     this.file = {
-      ...new File(0, '', '', '', '', '', '', ''),
+      ...new FileAsset(0, '', '', '', '', '', ''),
     };
     this.submitted = false;
     this.fileDialog = true;
@@ -69,7 +69,7 @@ export class CategoryDetailsComponent {
       accept: () => {
         this.files = this.files.filter((val) => val.id !== file.id);
         this.file = {
-          ...new File(0, '', '', '', '', '', '', ''),
+          ...new FileAsset(0, '', '', '', '', '', ''),
         };
         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'file Deleted', life: 3000 });
       }
@@ -84,7 +84,7 @@ export class CategoryDetailsComponent {
   savefile() {
     this.submitted = true;
 
-    if (this.file.name?.trim()) {
+    if (this.file.fileName?.trim()) {
       if (this.file.id) {
         this.files[this.findIndexById(this.file.id)] = this.file;
         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'file Updated', life: 3000 });
@@ -98,7 +98,7 @@ export class CategoryDetailsComponent {
       this.files = [...this.files];
       this.fileDialog = false;
       this.file = {
-        ...new File(0, '', '', '', '', '', '', ''),
+        ...new FileAsset(0, '', '', '', '', '', ''),
       };
     }
   }
@@ -137,38 +137,38 @@ export class CategoryDetailsComponent {
     }
   }
 
-  getFiles():File[]{
+  getFiles():FileAsset[]{
     return [
-      new File(1, 'file1', 'file1 description', 'pdf.png', 'file1Type', 'file1Size', 'file1Extension', 'file1Name'),
-      new File(2, 'file2', 'file2 description', 'csv-file.png', 'file2Type', 'file2Size', 'file2Extension', 'file2Name'),
-      new File(3, 'file3', 'file3 description', 'doc.png', 'file3Type', 'file3Size', 'file3Extension', 'file3Name'),
-      new File(4, 'file4', 'file4 description', 'pdf.png', 'file4Type', 'file4Size', 'file4Extension', 'file4Name'),
-      new File(5, 'file5', 'file5 description', 'csv-file.png', 'file5Type', 'file5Size', 'file5Extension', 'file5Name'),
-      new File(6, 'file6', 'file6 description', 'txt-file.png', 'file6Type', 'file6Size', 'file6Extension', 'file6Name'),
-      new File(7, 'file7', 'file7 description', 'txt-file.png', 'file7Type', 'file7Size', 'file7Extension', 'file7Name'),
-      new File(8, 'file8', 'file8 description', 'csv-file.png', 'file8Type', 'file8Size', 'file8Extension', 'file8Name'),
-      new File(9, 'file9', 'file9 description', 'pdf.png', 'file9Type', 'file9Size', 'file9Extension', 'file9Name'),
-      new File(10, 'file10', 'file10 description', 'txt-file.png', 'file10Type', 'file10Size', 'file10Extension', 'file10Name'),
-      new File(11, 'file11', 'file11 description', 'doc.png', 'file11Type', 'file11Size', 'file11Extension', 'file11Name'),
-      new File(12, 'file12', 'file12 description', 'csv-file.png', 'file12Type', 'file12Size', 'file12Extension', 'file12Name'),
-      new File(13, 'file13', 'file13 description', 'pdf.png', 'file13Type', 'file13Size', 'file13Extension', 'file13Name'),
-      new File(14, 'file14', 'file14 description', 'doc.png', 'file14Type', 'file14Size', 'file14Extension', 'file14Name'),
-      new File(15, 'file15', 'file15 description', 'txt-file.png', 'file15Type', 'file15Size', 'file15Extension', 'file15Name'),
-      new File(16, 'file16', 'file16 description', 'pdf.png', 'file16Type', 'file16Size', 'file16Extension', 'file16Name'),
-      new File(17, 'file17', 'file17 description', 'pdf.png', 'file17Type', 'file17Size', 'file17Extension', 'file17Name'),
-      new File(18, 'file18', 'file18 description', 'doc.png', 'file18Type', 'file18Size', 'file18Extension', 'file18Name'),
-      new File(19, 'file19', 'file19 description', 'txt-file.png', 'file19Type', 'file19Size', 'file19Extension', 'file19Name'),
-      new File(20, 'file20', 'file20 description', 'doc.png', 'file20Type', 'file20Size', 'file20Extension', 'file20Name'),
-      new File(21, 'file21', 'file21 description', 'doc.png', 'file21Type', 'file21Size', 'file21Extension', 'file21Name'),
-      new File(22, 'file22', 'file22 description', 'txt-file.png', 'file22Type', 'file22Size', 'file22Extension', 'file22Name'),
-      new File(23, 'file23', 'file23 description', 'csv-file.png', 'file23Type', 'file23Size', 'file23Extension', 'file23Name'),
-      new File(24, 'file24', 'file24 description', 'doc.png', 'file24Type', 'file24Size', 'file24Extension', 'file24Name'),
-      new File(25, 'file25', 'file25 description', 'csv-file.png', 'file25Type', 'file25Size', 'file25Extension', 'file25Name'),
-      new File(26, 'file26', 'file26 description', 'pdf.png', 'file26Type', 'file26Size', 'file26Extension', 'file26Name'),
-      new File(27, 'file27', 'file27 description', 'txt-file.png', 'file27Type', 'file27Size', 'file27Extension', 'file27Name'),
-      new File(28, 'file28', 'file28 description', 'txt-file.png', 'file28Type', 'file28Size', 'file28Extension', 'file28Name'),
-      new File(29, 'file29', 'file29 description', 'txt-file.png', 'file29Type', 'file29Size', 'file29Extension', 'file29Name'),
-      new File(30, 'file30', 'file30 description', 'doc.png', 'file30Type', 'file30Size', 'file30Extension', 'file30Name'),
+      // new File(1, 'file1', 'file1 description', 'pdf.png', 'file1Type', 'file1Size', 'file1Extension', 'file1Name'),
+      // new File(2, 'file2', 'file2 description', 'csv.png', 'file2Type', 'file2Size', 'file2Extension', 'file2Name'),
+      // new File(3, 'file3', 'file3 description', 'doc.png', 'file3Type', 'file3Size', 'file3Extension', 'file3Name'),
+      // new File(4, 'file4', 'file4 description', 'pdf.png', 'file4Type', 'file4Size', 'file4Extension', 'file4Name'),
+      // new File(5, 'file5', 'file5 description', 'csv.png', 'file5Type', 'file5Size', 'file5Extension', 'file5Name'),
+      // new File(6, 'file6', 'file6 description', 'txt.png', 'file6Type', 'file6Size', 'file6Extension', 'file6Name'),
+      // new File(7, 'file7', 'file7 description', 'txt.png', 'file7Type', 'file7Size', 'file7Extension', 'file7Name'),
+      // new File(8, 'file8', 'file8 description', 'csv.png', 'file8Type', 'file8Size', 'file8Extension', 'file8Name'),
+      // new File(9, 'file9', 'file9 description', 'pdf.png', 'file9Type', 'file9Size', 'file9Extension', 'file9Name'),
+      // new File(10, 'file10', 'file10 description', 'txt.png', 'file10Type', 'file10Size', 'file10Extension', 'file10Name'),
+      // new File(11, 'file11', 'file11 description', 'doc.png', 'file11Type', 'file11Size', 'file11Extension', 'file11Name'),
+      // new File(12, 'file12', 'file12 description', 'csv.png', 'file12Type', 'file12Size', 'file12Extension', 'file12Name'),
+      // new File(13, 'file13', 'file13 description', 'pdf.png', 'file13Type', 'file13Size', 'file13Extension', 'file13Name'),
+      // new File(14, 'file14', 'file14 description', 'doc.png', 'file14Type', 'file14Size', 'file14Extension', 'file14Name'),
+      // new File(15, 'file15', 'file15 description', 'txt.png', 'file15Type', 'file15Size', 'file15Extension', 'file15Name'),
+      // new File(16, 'file16', 'file16 description', 'pdf.png', 'file16Type', 'file16Size', 'file16Extension', 'file16Name'),
+      // new File(17, 'file17', 'file17 description', 'pdf.png', 'file17Type', 'file17Size', 'file17Extension', 'file17Name'),
+      // new File(18, 'file18', 'file18 description', 'doc.png', 'file18Type', 'file18Size', 'file18Extension', 'file18Name'),
+      // new File(19, 'file19', 'file19 description', 'txt.png', 'file19Type', 'file19Size', 'file19Extension', 'file19Name'),
+      // new File(20, 'file20', 'file20 description', 'doc.png', 'file20Type', 'file20Size', 'file20Extension', 'file20Name'),
+      // new File(21, 'file21', 'file21 description', 'doc.png', 'file21Type', 'file21Size', 'file21Extension', 'file21Name'),
+      // new File(22, 'file22', 'file22 description', 'txt.png', 'file22Type', 'file22Size', 'file22Extension', 'file22Name'),
+      // new File(23, 'file23', 'file23 description', 'csv.png', 'file23Type', 'file23Size', 'file23Extension', 'file23Name'),
+      // new File(24, 'file24', 'file24 description', 'doc.png', 'file24Type', 'file24Size', 'file24Extension', 'file24Name'),
+      // new File(25, 'file25', 'file25 description', 'csv.png', 'file25Type', 'file25Size', 'file25Extension', 'file25Name'),
+      // new File(26, 'file26', 'file26 description', 'pdf.png', 'file26Type', 'file26Size', 'file26Extension', 'file26Name'),
+      // new File(27, 'file27', 'file27 description', 'txt.png', 'file27Type', 'file27Size', 'file27Extension', 'file27Name'),
+      // new File(28, 'file28', 'file28 description', 'txt.png', 'file28Type', 'file28Size', 'file28Extension', 'file28Name'),
+      // new File(29, 'file29', 'file29 description', 'txt.png', 'file29Type', 'file29Size', 'file29Extension', 'file29Name'),
+      // new File(30, 'file30', 'file30 description', 'doc.png', 'file30Type', 'file30Size', 'file30Extension', 'file30Name'),
     ]
   }
   getfilesData() {

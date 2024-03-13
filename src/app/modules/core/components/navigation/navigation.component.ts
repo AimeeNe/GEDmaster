@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,12 +7,12 @@ import { Router } from '@angular/router';
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent {
-
+  @Input() isUserLoggedIn:boolean = true;
   constructor(private router: Router) { }
 
   // This is the method you need to add
   goToSignUpUser() {
-   
+
     this.router.navigate(['/sign-up-user']);
   }
 

@@ -7,14 +7,11 @@ import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./modules/core/core.module').then(m => m.CoreModule) },
-  { path: '', redirectTo: 'categories', pathMatch: 'full' },
-  { path: '', redirectTo: 'asset-view', pathMatch: 'full' },
-
-  { path: '', redirectTo: 'sign-up-user', pathMatch: 'full' },
+  { path: '', redirectTo: 'assets', pathMatch: 'full' },
   { path: 'sign-up-user', component: SignUpUserComponent },
 
-  
-  
+
+
 ];
 
 @NgModule({

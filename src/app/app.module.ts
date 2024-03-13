@@ -7,12 +7,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {SharedModule} from "./modules/shared/shared.module";
 import {CoreModule} from "./modules/core/core.module";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {HttpClient} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import { FormsModule } from '@angular/forms';
 import { SignUpUserComponent } from './sign-up-user/sign-up-user.component';
+import {TokenInterceptorService} from "./services/token-interceptor.service";
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
@@ -22,14 +23,14 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AppComponent,
     SignUpUserComponent,
 
- 
-  
-  ], 
+
+
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SharedModule, 
+    SharedModule,
     FormsModule,
     CoreModule,
     TranslateModule.forRoot({
@@ -41,7 +42,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     }),
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })

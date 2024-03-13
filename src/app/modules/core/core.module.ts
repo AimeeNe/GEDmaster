@@ -14,7 +14,7 @@ import { AssetViewComponent } from './components/asset-view/asset-view.component
         CategoryComponent,
         CategoryDetailsComponent,
         NavigationComponent,
-        AssetViewComponent
+        AssetViewComponent,
     ],
     exports: [
         NavigationComponent

@@ -1,16 +1,26 @@
+<br>
+<br>
+<p-toolbar styleClass="mb-4 gap-2">
+  <ng-template pTemplate="left">
+    <button pButton pRipple label="Add file" icon="pi pi-plus" class="p-button-success mr-2" (click)="initAddFileForm()"></button>
+  </ng-template>
 
+  <ng-template pTemplate="right">
+    <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+  </ng-template>
+</p-toolbar>
 
-<div class="d-flex justify-content-between flex-wrap">
-  <p-card header="{{category.name}}" *ngFor="let category of categories" class="w-22">
+<div class="d-flex justify-content-between flex-wrap p-4">
+  <p-card header="{{file.fileName}}" *ngFor="let file of files" class="w-22">
     <ng-template pTemplate="header">
       <div class="text-white bg-secondary px-3 py-1 rounded position-absolute">png</div>
-      <img alt="Card" [src]="'assets/img/'+category.imageUrl" />
+      <img  alt="Card" [src]="'assets/img/'+file?.fileExtension+'.png'" />
 
     </ng-template>
-   
+
     <p>
       {{
-        category.description
+      file?.description
       }}
     </p>
     <ng-template pTemplate="footer">
@@ -18,16 +28,66 @@
 
       <div class="d-flex align-items-center justify-content-between ">
         <span class="icon-group">
-          <p-button (click)="goToCategoryDetail(category.id)" icon="pi pi-download"></p-button>
-          <p-button (click)="goToCategoryDetail(category.id)" icon="pi pi-star"></p-button>
+          <p-button (click)="goToCategoryDetail(file.id)" icon="pi pi-download"></p-button>
+          <p-button (click)="goToCategoryDetail(file.id)" icon="pi pi-star"></p-button>
           <p-button (click)="goToAssetView" icon="pi pi-lock"></p-button>
         </span>
-        
-        <p-button (click)="goToAssetView(asset.id)" icon="pi pi-eye" [rounded]="true" severity="success"></p-button>
+
+        <p-button (click)="goToAssetView(file.id)" icon="pi pi-eye" [rounded]="true" severity="success"></p-button>
       </div>
 
 
     </ng-template>
   </p-card>
 </div>
+
+
+<p-dialog [(visible)]="isDialogVisible" [style]="{ width: '450px' }" header="Add new file" [modal]="true" styleClass="p-fluid">
+
+<!--  <p-fileUpload #fileUpload [customUpload]="true" mode="basic" [auto]="true"  (onUpload)="onUpload($event)" [maxFileSize]="1000000000000" name="demo[]"  label="Import" chooseLabel="Choose" class="mr-2 inline-block"></p-fileUpload>-->
+  <form   [formGroup]="addFileForm" (submit)="addFile()">
+<div class="d-flex justify-content-center">
+  <img width="50" height="50" src="assets/img/MADS_263_AVL-DRIVE-KV.jpg" alt="assets/img/MADS_263_AVL-DRIVE-KV.jpg" class="block m-auto pb-3" />
+</div>
+
+
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" pInputText id="name" formControlName="fileName" required autofocus />
+      <small class="p-error" *ngIf="addFileForm.get('fileName').hasError('required')">Name is required.</small>
+    </div>
+    <div class="field">
+      <label for="fileType">File type</label>
+      <input type="text" pInputText id="fileType" formControlName="fileType" required autofocus />
+      <small class="p-error" *ngIf="addFileForm.get('fileType').hasError('required')">File type is required.</small>
+    </div>
+    <br>
+    <p-dropdown [options]="extentions" formControlName="fileExtension"  [showClear]="true" placeholder="Select an Extension"></p-dropdown>
+    <br>
+    <p-dropdown [options]="categories" formControlName="categoryName"  [showClear]="true" placeholder="Select a Category"></p-dropdown>
+    <br>
+
+    <p-fileUpload mode="basic" chooseLabel="Choose your file"  name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" (onSelect)="onUpload($event)"  accept=".pdf, .jpg, .png, .doc, .docx, .xls, .xlsx, .csv" maxFileSize="1000000">
+    <br>
+    </p-fileUpload>
+    <div class="field">
+      <label for="description">Description</label>
+      <textarea id="description" pInputTextarea formControlName="description"  rows="3" cols="20"></textarea>
+    </div>
+
+
+
+
+
+
+
+  <div class="d-flex justify-content-end  mt-3">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-danger " type="button" (click)="hideDialog()"></button>
+    <button pButton pRipple label="Save" [disabled]="addFileForm.invalid" icon="pi pi-check" class="p-button-success ms-3 " type="submit"></button>
+  </div>
+
+
+  </form>
+</p-dialog>
+
 

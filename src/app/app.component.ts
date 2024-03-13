@@ -1,12 +1,16 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
+import {LoginService} from "./services/login.service";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit,OnChanges{
+  isUserLoggedIn:boolean = true;
   title = 'DAM-AVL';
   @Output()sidenaToogleEvent: EventEmitter<any> = new EventEmitter<any>();
   languages = [
@@ -14,7 +18,27 @@ export class AppComponent {
     { code: 'fr', label: 'FR', fullName: 'Français' }
   ]
 
-constructor(private translateService: TranslateService) {
+  ngOnChanges(): void {
+    this.isUserLoggedIn = this.loginService.isLoggedIn()
+    if(!this.loginService.isLoggedIn()){
+      this.router.navigate(['/sign-up-user']);
+    }
+
+    this.loginService.isUserLoggedInObservable.subscribe(res=>{
+      console.log(res);
+
+      this.isUserLoggedIn = Boolean(res);
+
+    });
+  }
+
+  ngOnInit(): void {
+
+  }
+
+
+
+constructor(private translateService: TranslateService,private loginService:LoginService,private router:Router) {
 }
   get langs(): any[] {
     return this.languages;

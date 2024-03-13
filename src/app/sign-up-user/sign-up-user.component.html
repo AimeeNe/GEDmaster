@@ -2,32 +2,32 @@
 <div class="parent">
 
   <div class="main">
-    <input type="checkbox" id="chk" aria-hidden="true">
 
     <div class="signup">
-      <form>
-        <label for="chk" aria-hidden="true">Sign up</label>
-        <input type="text" name="txt" placeholder="User name" required="" [(ngModel)]="signUpObj.userName">
-        <input type="text" name="txt" placeholder="UserID" required="" [(ngModel)]="signUpObj.userId">
-        <input type="email" name="email" placeholder="Email" required="" [(ngModel)]="signUpObj.email">
-        <input type="password" name="pswd" placeholder="Password" required="" [(ngModel)]="signUpObj.password">
-        <button>Sign up</button>
+      <div class="d-flex justify-content-center align-content-center">
+        <img class=" bg-success" src="./assets/img/Logo.png"style="width:80px;">
+      </div>
+
+      <form [formGroup]="userFromGroup" (submit)="login()">
+        <input type="email" name="username" placeholder="User name" required  formControlName="username">
+        <input type="password" name="pswd" placeholder="Password" required formControlName="password">
+        <button type="submit" class="mt-5">Sign in</button>
       </form>
     </div>
 
-    <div class="login">
-      <form>
-        <label for="chk" aria-hidden="true">Login</label>
-        <input type="email" name="email" placeholder="Email" required="" [(ngModel)]="loginObj.email">
-        <input type="text" name="email" placeholder="UserID" required="" [(ngModel)]="loginObj.userId">
-        <input type="password" name="pswd" placeholder="Password" required="" [(ngModel)]="loginObj.password">
-        <button>Login</button>
-      </form>
-    </div>
+<!--    <div class="login">-->
+<!--      <form>-->
+<!--        <label for="chk" aria-hidden="true">Login</label>-->
+<!--        <input type="email" name="email" placeholder="Email" required="" [(ngModel)]="loginObj.email">-->
+<!--        <input type="text" name="email" placeholder="UserID" required="" [(ngModel)]="loginObj.userId">-->
+<!--        <input type="password" name="pswd" placeholder="Password" required="" [(ngModel)]="loginObj.password">-->
+<!--        <button>Login</button>-->
+<!--      </form>-->
+<!--    </div>-->
   </div>
 
 </div>
 
- 
+
 
 
